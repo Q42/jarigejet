@@ -1,0 +1,49 @@
+<head>
+  <title>jubileum</title>
+</head>
+
+<body>
+</body>
+
+<template name="layout">
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Jarige Jet</a>
+    </div>
+  </div>
+  <div class="container">
+    {{> yield}}
+  </div>
+</template>
+
+<template name="jubileum">
+  <h1>Jubileum!</h1>
+  <table class="table">
+    <tr>
+      <th></th>
+      <th>Hoe lang tot 42?</th>
+      <th>Komend jubileum?</th>
+    </tr>
+  {{#each .}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{timeUntil42}}</td>
+      <td>{{nextAnniversary}}</td>
+    </tr>
+  {{/each}}
+  </table>
+</template>
+
+<template name="loading">
+  <center>
+    <img src="http://static.q42.nl/images/babymario.gif" />
+  </center>
+</template>
+
+<template name="login">
+  <div class="well">
+    <h1>Hallo?</h1>
+    <p>Who R U?</p>
+    {{> loginButtons}}
+  </div>
+</template>
