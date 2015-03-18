@@ -1,6 +1,7 @@
 
 Session.setDefault('sort','birthdate');
 
+Accounts.config restrictCreationByEmailDomain: 'q42.nl'
 Accounts.ui.config requestOfflineToken: google: true
 
 Router.configure
@@ -17,9 +18,7 @@ Router.route '/',
     # lolwut zonder deze comment laadt de pagina niet als je uitgelogd bent
     console.log('finished loading data');
   data: ->
-    if (Session.get('sort') == 'birthdate')
-      return Employees.find({}, sort: birthdate: 1)
-    return Employees.find({}, sort: dateStarted: 1)
+    return Employees.find({}, sort: birthdate: 1)
   onBeforeAction: ->
     if not Meteor.userId()
       @render('Login');
@@ -31,6 +30,14 @@ Router.route '/login',
   template: 'login'
 
 Template.jubileum.helpers
+  sort: (items) ->
+    if Session.get('sort') is 'birthdate'
+      return items
+    _.sortBy items.fetch(), (el) ->
+      for num in [0..10]
+        anniv = moment(el.dateStarted).add(num*5,'years')
+        if anniv.isAfter(moment())
+          return anniv - moment();
   dateTurns42: ->
     moment(@birthdate).add(42,'years')
   timeUntil42: ->

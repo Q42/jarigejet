@@ -17,21 +17,25 @@
 </template>
 
 <template name="jubileum">
-  <table class="table">
-    <tr>
-      <th></th>
-      <th data-sort="birthdate">Hoe lang tot 42?</th>
-      <th data-sort="dateStarted">Komend jubileum?</th>
-    </tr>
-  {{#each .}}
-    <tr>
-      <td>{{name}}</td>
-      <td title="42 jaar oud op {{formatDate dateTurns42}}">{{timeUntil42}} ({{formatDate dateTurns42}})</td>
-      <td title="Bij Q sinds {{formatDate dateStarted}}">
-        {{nextAnniversary}} op {{formatDate dateNextAnniversary}} ({{untilAnniversary}})
-      </td>
-    </tr>
-  {{/each}}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th data-sort="birthdate">Hoe lang tot 42?</th>
+        <th data-sort="dateStarted">Komend jubileum?</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each sort .}}
+      <tr>
+        <td>{{name}}</td>
+        <td title="42 jaar oud op {{formatDate dateTurns42}}">{{timeUntil42}} ({{formatDate dateTurns42}})</td>
+        <td title="Bij Q sinds {{formatDate dateStarted}}">
+          {{nextAnniversary}} op {{formatDate dateNextAnniversary}} ({{untilAnniversary}})
+        </td>
+      </tr>
+    {{/each}}
+    </tbody>
   </table>
 </template>
 
