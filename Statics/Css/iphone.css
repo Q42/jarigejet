@@ -1,0 +1,236 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body
+{
+  font-family: Trebuchet MS;
+  font-size: 12px;
+  text-align: left;
+  background-color: #fff;
+  width: 100%;
+}
+
+.main
+{
+  position: absolute;
+  bottom: 31px;
+  top: 0px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+
+.settings
+{
+  background-color: #fff;
+  border-top: 1px solid black;
+  position: absolute;
+  bottom: 0px;
+  height: 22px;
+  width: 100%;
+  padding: 4px;
+}
+
+.shaddow
+{
+  background-color: #838481;
+  position: absolute;
+  bottom: 31px;
+  height: 1px;
+  border-bottom: 1px solid #000;
+  width: 100%;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  right: 0px;
+}
+
+xmp
+{
+  background-color: #CDFF50;
+  color: #000;
+  border: 1px dashed #000;
+  width: 100%;
+  height: 40px;
+  overflow: auto;
+}
+
+.sorteerOpDaysremaining-expanded,
+.sorteerOpNaam-expanded,
+.sorteerOpLeeftijd-expanded
+{
+  display: block;
+}
+
+.sorteerOpDaysremaining-collapsed,
+.sorteerOpNaam-collapsed,
+.sorteerOpLeeftijd-collapsed
+{
+  display: none;
+}
+
+.uitleg-visible
+{
+  height: 42px;
+  min-width: 210px;
+  text-align: center;
+  color: #737373;
+  padding-top: 10px;
+}
+.uitleg-visible a
+{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.uitleg-hidden
+{
+  display: none;
+}
+
+.persoon,
+.persoon:hover,
+.persoon-selected,
+.persoon-unselected
+{
+  min-width: 200px;
+  height: 42px;
+  border-bottom: 1px solid #B2B2B2;
+}
+
+.persoon,
+.persoon-selected
+{ 
+  border-top: 1px solid #B2B2B2;
+  margin-top: -1px;
+}
+
+.persoon-unselected
+{
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+.persoon-hidden
+{
+  display: none;
+}
+
+.persoon-selected a,
+.persoon a
+{
+  color: #000;
+}
+
+.left
+{
+  float: left;
+  width: 150px;
+  margin-left: 2px;
+}
+
+.left .top
+{
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.right
+{
+  float: right;
+  text-align: center;
+  width: 35px;
+  margin: 3px;
+  background-color: #E9F0FA;
+  border: 1px solid #D1D1D1;
+}
+
+
+.right-7dagen  { background-color: #94EA00; }
+.right-14dagen { background-color: #B1EA4F; }
+.right-30dagen { background-color: #C6EA88; }
+
+.bottom
+{
+  font-size: 11px;
+  height: 16px;
+}
+.bottom .age
+{
+  float: left;
+  width: 83px;
+  color: #737373;
+}
+.bottom .birthday
+{
+  float: left;
+  text-align: right;
+  color: #737373;
+}
+
+
+
+.settings .button:hover,
+.settings .button-pressed
+{
+  /* border: 1px solid #A4A4A4; */
+  cursor: pointer;
+  width: 27px;
+  padding: 4px 4px;
+}
+
+.settings .button
+{
+  cursor:default;
+  width: 27px;
+  padding: 4px 4px;
+}
+
+#sortSettings a
+{
+  color: #000000;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  padding: 8px 3px 8px 4px;
+}
+
+.menu-opened
+{
+  background-color: #F2F2F2;
+  border: 1px solid black;
+  bottom: 27px;
+  height: 95px;
+  left: 4px;
+  position: absolute;
+  width: 120px;
+  z-index: 10;
+  display: block;
+  overflow: hidden;
+}
+
+.menu-closed
+{
+  display: none;
+}
+
+.settings .search
+{
+  float: right;
+  position: absolute;
+  right: 10px;
+  top: 4px;
+}
+
+.settings .search #searchNames
+{
+  height: 20px;
+}
+
+.noresultsInput
+{
+  color: #FA3F4B;
+}

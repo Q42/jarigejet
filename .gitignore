@@ -1,2 +1,7 @@
 .meteor/local
 .meteor/meteorite
+obj
+bin
+packages
+*.suo
+*.user

@@ -1,0 +1,122 @@
+﻿@model List<JarigeJet.Models.Person>
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>JarigeJet</title>
+
+  @* CSS *@
+  <link href="/Statics/Css/global.css" rel="stylesheet" type="text/css" />
+  <link media="only screen and (max-device-width: 480px)" href="/Statics/Css/iphone.css" type="text/css" rel="stylesheet" />
+  <link media="screen and (min-device-width: 481px)" href="/Statics/Css/global.css" type="text/css" rel="stylesheet" />
+
+  @* Javascript *@
+  <script type="text/javascript" src="/Statics/Script/scripts.js"></script>
+  <script type="text/javascript" src="/Statics/Script/cookieUtils.js"></script>
+  <script type="text/javascript" src="/Statics/Script/00_spiffy.js"></script>
+
+  @* Favicons *@
+  <link rel="icon" href="/Statics/Img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/Statics/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/Statics/img/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="/Statics/img/apple-touch-icon.png" />
+
+  @* Feeds *@
+  <link type="application/atom+xml" rel="alternate" title="JarigeJet Atom Feed" href="/feed.atom" />
+  <link type="application/rss+xml" rel="alternate" title="JarigeJet RSS Feed" href="/feed.rss" />
+
+  @* Mobile *@
+  <meta name="viewport" content="width=230" />
+</head>
+
+<body onload="setSort();" onkeydown="handleKey(event);">
+
+  <div id="personen" class="main exclusive_expanded" onclick="hideMenu();">
+
+
+    <div id="uberList" class="sorteerOpDaysremaining-expanded">
+
+      @foreach (var p in Model)
+      {
+        var daysRemaining = p.GetRemainingDays();
+        <div class="persoon @(daysRemaining == 42 ? "vandaagIsGroen" : "")" id="@p.TransformedName">
+          <div class="left">
+
+            <div class="top">
+              <p class="personName">@p.Name</p>
+            </div>
+            <div class="bottom">
+              <div class="age">
+                turns @p.GetUpcomingBirthdayAge()
+              </div>
+              <div class="birthday">
+                @p.Birthday.ToString("dd-MM-yyyy")
+              </div>
+            </div>
+          </div>
+
+          @{
+        var colorClass = "";
+        if (daysRemaining < 7) { colorClass = "right-7dagen"; }
+        else if (daysRemaining < 14) { colorClass = "right-14dagen"; }
+        else if (daysRemaining < 30) { colorClass = "right-30dagen"; }
+          }
+          <div class="right @colorClass">
+            <div class="top">
+              @if (daysRemaining == 0)
+              { 
+                <text>today</text>
+              }
+              else if (daysRemaining == 42)
+              {
+                <marquee scrolldelay="100">@daysRemaining</marquee>
+              }
+              else
+              {
+                @daysRemaining
+              }
+            </div>
+            <div class="bottom">
+              @if (daysRemaining > 1)
+              { 
+                <text>days</text>
+              }
+              else
+              {
+                <text>day</text>
+              }
+            </div>
+          </div>
+        </div>              
+      }
+
+    </div>
+
+  </div>
+
+  <div id="sortSettings" class="menu-closed">
+    <a class="expander" href="#sortDaysRemaining" onclick="toggleMenu(); createSortCookieDaysremaining(); ">days remaining</a>
+    <a class="expander" href="#sortName" onclick="toggleMenu(); createSortCookieName();">name</a>
+    <a class="expander" href="#sortAge" onclick="toggleMenu(); createSortCookieAge();">age</a>
+  </div>
+
+  <div class="shaddow"></div>
+
+  <div class="settings">
+    <strong>sort:</strong>
+    <a href="/days">aantal dagen</a>,
+    <a href="/name">naam</a>,
+    <a href="/age">leeftijd</a>
+
+    <div class="search">
+      <input id="searchNames" onfocus="hideMenu();" onkeyup="search(event);" />
+    </div>
+  </div>
+
+</body>
+</html>
