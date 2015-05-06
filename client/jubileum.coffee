@@ -2,7 +2,11 @@
 Session.setDefault('sort','birthdate');
 
 Accounts.config restrictCreationByEmailDomain: 'q42.nl'
-Accounts.ui.config requestOfflineToken: google: true
+Accounts.ui.config
+  requestOfflineToken:
+    google: true
+  forceApprovalPrompt:
+    google: true
 
 Router.configure
   layoutTemplate: "layout"
