@@ -1,3 +1,3 @@
 #!/bin/sh
 
-meteor
+meteor run --settings settings.json

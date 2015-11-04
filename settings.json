@@ -1,0 +1,8 @@
+{
+  "public": {
+    "q42api": {
+      "url": "https://companyapi.q42.com",
+      "appId": "jarigejet"
+    }
+  }
+}

@@ -16,5 +16,5 @@ http
 meteorhacks:fast-render
 iron:router
 fezvrasta:bootstrap-material-design
-q42:qure-base
+q42internal:company-api-client
 aldeed:simple-schema
